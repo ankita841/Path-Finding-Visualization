@@ -1,14 +1,24 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package model_package;
 
-/**
- *
- * @author dell
- */
-public class PathMap {
+import java.awt.Point;
+import java.io.*;
+import java.nio.*;
+import java.util.*;
+
+public class PathMap extends Observable{
+    
+    //2-D map of all the tiles of the map.
+    private PathTile[][] tileMap; 
+
+    public PathMap(int width, int height)
+    {
+        tileMap = new PathTile[width][height];
+        
+        for (int i = 0; i < width; i++)
+            for (int j = 0; j < height; j++)
+                tileMap[i][j] = new PathTile(new Point(i, j));
+        
+    }
+    
     
 }
