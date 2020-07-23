@@ -5,7 +5,7 @@ import java.awt.*;
 public class StartTile extends PathTile{
     
     public static final char CHAR = 'S';
-    public static final Color COLOR = new Color(255, 255, 51); // yellow colour
+    public static final Color COLOR = new Color(196, 21, 212); // purple colour
     
     public StartTile(Point point)
     {
