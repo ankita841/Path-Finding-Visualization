@@ -2,7 +2,7 @@ package model_package;
 
 import java.awt.*;
 
-public class GoalTile {
+public class GoalTile extends PathTile{
     
     public static final char CHAR = 'G';
     public static final Color COLOR = new Color(51, 51, 255); // Dark blue color

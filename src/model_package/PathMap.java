@@ -3,6 +3,8 @@ package model_package;
 import java.awt.Point;
 import java.io.*;
 import java.nio.*;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.*;
 
 public class PathMap extends Observable{
