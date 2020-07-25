@@ -14,9 +14,10 @@ public class MapPanel extends JPanel implements Observer {
 	public static final int TILE_SIZE = 16;
 	public static final int BORDER_SIZE = 2;
 	// Colors for some aspects of rendering.
-	private static final Color BORDER_COLOR = new Color(5, 0, 75);//Dark blue
+	private static final Color BORDER_COLOR = new Color(0, 0, 0);//Black colour
 
-	public MapPanel(PathMap map) {
+	public MapPanel(PathMap map)
+        {
 		this.map = map;
 		this.addMouseListener(new PanelClickListener(map));
 		this.addMouseMotionListener(new PanelClickListener(map));
@@ -47,10 +48,12 @@ public class MapPanel extends JPanel implements Observer {
 	private void paintBorders(Graphics g) {
 		g.setColor(BORDER_COLOR);
 		Dimension size = getDisplaySize();
-		for (int x = 0; x < size.width; x += (TILE_SIZE + BORDER_SIZE)) {
+		for (int x = 0; x < size.width; x += (TILE_SIZE + BORDER_SIZE))
+                {
 			g.fillRect(x, 0, BORDER_SIZE, size.height);
 		}
-		for (int y = 0; y < size.height; y += (TILE_SIZE + BORDER_SIZE)) {
+		for (int y = 0; y < size.height; y += (TILE_SIZE + BORDER_SIZE)) 
+                {
 			g.fillRect(0, y, size.width, BORDER_SIZE);
 		}
 	}
@@ -60,23 +63,37 @@ public class MapPanel extends JPanel implements Observer {
 	 * 
 	 * @param g The graphics context.
 	 */
-	private void paintTiles(Graphics g) {
-		for (int x = 0; x < map.getWidth(); x++) {
-			for (int y = 0; y < map.getHeight(); y++) {
+	private void paintTiles(Graphics g)
+        {
+		for (int x = 0; x < map.getWidth(); x++) 
+                {
+			for (int y = 0; y < map.getHeight(); y++) 
+                        {
 				int displayX = x * TILE_SIZE + (x + 1) * BORDER_SIZE;
 				int displayY = y * TILE_SIZE + (y + 1) * BORDER_SIZE;
 				PathTile tile = map.getTile(x, y);
-				if (tile instanceof StartTile) {
+				if (tile instanceof StartTile) 
+                                {
 					g.setColor(StartTile.COLOR);
-				} else if (tile instanceof GoalTile) {
+				}
+                                else if (tile instanceof GoalTile)
+                                {
 					g.setColor(GoalTile.COLOR);
-				} else if (tile instanceof ObstacleTile) {
+				}
+                                else if (tile instanceof ObstacleTile) 
+                                {
 					g.setColor(ObstacleTile.COLOR);
-				} else if (tile.isInFrontier()) {
+				}
+                                else if (tile.isInFrontier()) 
+                                {
 					g.setColor(PathTile.COLOR_FRONTIER);
-				} else if (tile.isTraversed()) {
+				} 
+                                else if (tile.isTraversed())
+                                {
 					g.setColor(PathTile.COLOR_TRAVERSED);
-				} else {
+				} 
+                                else
+                                {
 					g.setColor(PathTile.COLOR);
 				}
 				g.fillRect(displayX, displayY, TILE_SIZE, TILE_SIZE);
@@ -90,7 +107,8 @@ public class MapPanel extends JPanel implements Observer {
 	 * 
 	 * @return A Dimension of the real width and height of the panel display.
 	 */
-	public Dimension getDisplaySize() {
+	public Dimension getDisplaySize()
+        {
 		return new Dimension(map.getWidth() * TILE_SIZE + (map.getWidth() + 1) * BORDER_SIZE,
 				map.getHeight() * TILE_SIZE + (map.getHeight() + 1) * BORDER_SIZE);
 	}
