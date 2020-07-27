@@ -162,7 +162,7 @@ public class PathMap extends Observable{
         List<PathTile> tiles = new ArrayList<>();
         Point originPoint = originTile.getPoint();
         Point up = new Point(originPoint);
-        up.translate(0, 1);
+        up.translate(0, -1);
         if (isValidPoint(up) && !(this.getTile(up) instanceof ObstacleTile))
             tiles.add(this.getTile(up));
         Point right = new Point(originPoint);
@@ -170,7 +170,7 @@ public class PathMap extends Observable{
         if (isValidPoint(right) && !(this.getTile(right) instanceof ObstacleTile))
             tiles.add(this.getTile(right));
         Point down = new Point(originPoint);
-        down.translate(0, -1);
+        down.translate(0, 1);
         if (isValidPoint(down) && !(this.getTile(down) instanceof ObstacleTile))
             tiles.add(this.getTile(down));
         Point left = new Point(originPoint);
