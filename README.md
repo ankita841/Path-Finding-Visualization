@@ -37,6 +37,6 @@ Pathfinding Visualizer is a dynamic visualization Java application used to visua
 
 ![](Astar.gif)
 
-#### Visualizing other functionalities
+#### Other functionalities
 
 ![](Otherfunc.gif)
